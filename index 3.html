@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="en"><head>
+
+    <!-- Open Graph Meta Tags (for Discord & Messenger Embed Preview) -->
+    <meta property="og:title" content="Mastery Hub">
+    <meta property="og:description" content="A Script Hub for Roblox.">
+    <meta property="og:url" content="https://linkbio.co/caythuemaster">
+    <meta property="og:image" content="rip.png">
+    <meta property="og:image:width" content="64">
+    <meta property="og:image:height" content="64">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mastery Hub">
+
+    <!-- Twitter Meta Tags (Also works with Messenger) -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Mastery Hub">
+    <meta name="twitter:description" content="A Script Hub for Roblox">
+    <meta name="twitter:image" content="https://i.imgur.com/BTKhmyq.jpeg">
+
+    <!-- Theme Color for Embed -->
+    <meta name="theme-color" content="#78001E">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mastery Hub</title>
+    <!-- Favicon -->
+    <link rel="icon" href="rip.png" type="image/png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #111);
+            color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: rgba(30, 30, 30, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar h1 {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            gap: 10px;
+        }
+
+        .navbar h1 img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .navbar a.discord-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background-color: #5865F2;
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95em;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .navbar a.discord-button:hover {
+            transform: translateY(-2px);
+            background-color: #4752C4;
+        }
+
+        main {
+            margin-top: 120px;
+            width: 100%;
+            max-width: 900px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #f5f5f5;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .code-container {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        pre {
+            background-color: rgba(25, 25, 35, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #f1f1f1;
+            font-size: 1em;
+            line-height: 1.6;
+            padding: 20px;
+            text-align: left;
+            overflow-x: auto;
+            transition: background-color 0.3s;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        pre:hover {
+            background-color: rgba(120, 0, 30);
+        }
+
+        pre .keyword { color: #cc7832; }
+        pre .string { color: #a5c261; }
+        pre .comment { color: #6a9955; font-style: italic; }
+
+        button.copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 14px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        button.copy-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        button.copy-button:active {
+            transform: translateY(2px);
+            background-color: #004099;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9em;
+            color: #aaaaaa;
+        }
+
+        @media (max-width: 768px) {
+            .navbar h1 {
+                font-size: 1.6rem;
+            }
+
+            .navbar a.discord-button {
+                font-size: 0.85em;
+                padding: 10px 16px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            pre {
+                font-size: 0.85em;
+            }
+
+            button.copy-button {
+                padding: 8px 12px;
+            }
+        }
+        .supported-executors {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .supported-executors h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .supported-executors p {
+            font-size: 1.2em;
+            color: #ccc;
+        }
+
+        .supported-executors a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #5865F2;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .supported-executors a:hover {
+            background-color: #4752C4;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>
+            <img src="https://i.imgur.com/BTKhmyq.jpeg" alt="Icon">
+             MASTERY HUB
+        </h1>
+        <a href="https://discord.gg/d9AH96mJcc" target="_blank" class="discord-button">
+            <img src="https://i.imgur.com/jfYApHb.jpeg" alt="Discord Icon" width="20"> Discord
+        </a>
+    </div>
+
+        <div class="supported-executors">
+              <h2>Mastery Hub Key System<h2>
+              <h2>Mission 1✅ >>> Mission 2✅ >>> Mission 3✅</h2>
+            <p>Click below to start Get Key.</p>
+            <a href="https://direct-link.net/1334147/get-key-msr">Start</a>
+        </div>
+        
+        <div class="supported-executors">
+            <p>Click below to shop.</p>
+            <a href="https://shoproblox29.cfd/">Shop</a>
+        </div>
+
+ <footer>
+        © 2025 Mastery Hub. All rights reserved.
+    </footer>
+
+</body></html>       
